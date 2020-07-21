@@ -15,7 +15,6 @@ A REST API which allows for the secure storage and retrieval of passwords
 - Redoc
 
 
-
 ### Features
 ---
 - REST API with CRUD functionality for all the provided models.
@@ -44,3 +43,9 @@ URL |  Purpose
 /app/sites| Create new password entry for a site
 /app/sites/list | List all saved passwords
 
+### Steps to run
+
+```
+pip3 install -r requirements.txt
+python3 manage.py runserver
+```

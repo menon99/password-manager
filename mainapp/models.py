@@ -15,9 +15,7 @@ class Website(models.Model):
     def __str__(self):
         return self.site + ' ' + self.username
     
-    @property
-    def get_password(self):
-        return utils.decrypt(self.password)
+   
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         self.password = utils.encrypt(self.password)
