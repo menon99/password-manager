@@ -1,11 +1,13 @@
 
 from rest_framework import viewsets
+from rest_framework.response import Response
 from .models import Website
 from .serializers import WebsiteSerializer
 from django_filters import rest_framework as filters
 from . import utils
 
 from django.db.models import F, Value , CharField
+from django.contrib.auth.models import User
 
 
 
@@ -26,6 +28,11 @@ class WebsiteViewSet(viewsets.ModelViewSet):
     queryset = Website.objects.all()
     serializer_class = WebsiteSerializer
     filterset_class = WebsiteFilter
+
+    
+    def get_queryset(self):
+        qs = Website.objects.filter( user = self.request.query_params.get('userId'))
+        return qs
 
     
 
